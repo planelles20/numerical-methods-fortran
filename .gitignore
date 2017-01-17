@@ -1,0 +1,6 @@
+
+#module files
+*.mod
+
+#output file
+*.o
