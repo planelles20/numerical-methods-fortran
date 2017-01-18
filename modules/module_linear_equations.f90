@@ -63,7 +63,7 @@ end function
 function resol_lu(A, b) result(x)
     real(real64), intent(in) :: A(:,:), b(:)
     real(real64), allocatable :: x(:)
-    real(real64), allocatable :: l(:,:), u(:,:)
+    real(real64), allocatable :: L(:,:), U(:,:)
 
     call lu(A, L, U)
     x = ascend(U, drop(L, b))
