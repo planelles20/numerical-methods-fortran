@@ -14,18 +14,22 @@ contains
 
     ! f(x) = 0
     function funcion1D(x)
-        real(real64) :: funcion1D
-        real(real64), intent(in) :: x
+        real(real64), allocatable :: funcion1D(:)
+        real(real64), intent(in) :: x(:)
+
+        allocate(funcion1D(1))
 
         funcion1D = exp(2.0*x) -5
     end function
 
     ! df(x)/dx
     function d_funcion1D(x)
-        real(real64) :: d_funcion1D
-        real(real64), intent(in) :: x
+        real(real64), allocatable :: d_funcion1D(:,:)
+        real(real64), intent(in) :: x(:)
 
-        d_funcion1D = 2.0*exp(2.0*x)
+        allocate(d_funcion1D(1,1))
+
+        d_funcion1D(1,1) = 2.0*exp(2.0*x(1))
     end function
 
     ! f_3D: x --> R**3    x in R**3
@@ -43,7 +47,7 @@ contains
     !Jacobian matrix of f_3D
     function J_funcion3D(x)
         real(real64), allocatable :: J_funcion3D(:,:)
-        real(real64), intent(in) :: x(3)
+        real(real64), intent(in) :: x(:)
 
         allocate(J_funcion3D(3,3))
 

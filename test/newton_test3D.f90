@@ -7,7 +7,7 @@
 
 program newton_test
 use module_newton_raphson
-use whatever_function
+use whatever_function, only: funcion3D, J_funcion3D
 implicit none
 
 real(real64) :: x0(3), eps = 1e-10_real64
@@ -19,7 +19,7 @@ x0(:) = [1._real64, 2._real64, -20._real64]
 
 print *, "Initial vector:"
 print *, x0
-call newton_raphson(x0, ite, eps, ok)
+call newton_raphson(funcion3D, J_funcion3D, x0, ite, eps, ok)
 
 if (ok) then
     print *, "Solution:"

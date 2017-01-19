@@ -7,14 +7,24 @@
 
 program newton_test
 use module_newton_raphson
+use whatever_function, only: funcion1D, d_funcion1D
 implicit none
 
-real(real64) :: x0 = 0.0, eps = 1e-5
+real(real64) :: x0(1) = 0.0_real64 , eps = 1e-5
 logical :: ok
 integer :: ite = 100
 
-call newton_raphson1D(x0, ite, eps, ok)
-
+print *, "Initial vector:"
 print *, x0
-print *, ite
+
+call newton_raphson(funcion1D, d_funcion1D, x0, ite, eps, ok)
+
+if (ok) then
+    print *, "Solution:"
+    print *, x0
+    print *, "number of iterations:"
+    print *, ite
+else
+    print *, "The method does not converge"
+end if
 end program

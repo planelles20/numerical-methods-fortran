@@ -8,7 +8,6 @@
 module module_newton_raphson
 
 use iso_fortran_env, only: real64
-use whatever_function
 use module_linear_equations
 implicit none
 
@@ -16,40 +15,52 @@ contains
 
 !-------------------------------------------------------------------------------
 ! newton_raphson: implements Newton-Raphson method, general case (N dimension)
+!   F(x) = 0
+!   J(x) = dF(x)/dx
 !-------------------------------------------------------------------------------
-subroutine newton_raphson(x, ite, eps, ok)
+subroutine newton_raphson(F, J, x, ite, eps, ok)
+    interface
+        function F(x)
+            use iso_fortran_env, only: real64
+            real(real64), allocatable :: F(:)
+            real(real64), intent(in) :: x(:)
+        end function
+    end interface
+    interface
+        function J(x)
+            use iso_fortran_env, only: real64
+            real(real64), allocatable :: J(:,:)
+            real(real64), intent(in) :: x(:)
+        end function
+    end interface
     real(real64), intent(inout) :: x(:)
     integer, intent(inout) :: ite
     real(real64), intent(in) :: eps
     logical, intent(out) :: ok
-    integer :: i, j
+    integer :: i, k
     real(real64), allocatable :: xaux(:), dx(:)
     real(real64) :: error
 
     allocate(xaux(size(x,1)), dx(size(x,1)))
 
     do i = 1, ite
-
-        do j = 1, size(x,1)
-            xaux(j) = x(j)
+        do k = 1, size(x,1)
+            xaux(k) = x(k)
         end do
-
-        dx = resol_lu(J_funcion3D(x),-funcion3D(x))
-
-        do j = 1, size(x,1)
-            x(j) = x(j)+dx(j)
+        dx = resol_lu(J(x),-F(x))
+        do k = 1, size(x,1)
+            x(k) = x(k)+dx(k)
         end do
-
         error = 0._real64
-        do j = 1, size(x,1)
-            error = abs(x(j)-xaux(j))+error
+        do k = 1, size(x,1)
+            error = abs(x(k)-xaux(k))+error
         end do
 
         if (error < eps) then
             ok = .true.
             ite = i
-            do j = 1, size(x,1)
-                x(j) = xaux(j)
+            do k = 1, size(x,1)
+                x(k) = xaux(k)
             end do
             EXIT
         end if
