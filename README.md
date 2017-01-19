@@ -7,7 +7,7 @@ Solving linear, nonlinear equations, ordinary differential equations, ... using 
     *QR (TODO)*
 
 ## 2. No linear equations
-    *Newton-Raphson*
+    _Newton-Raphson_
     *fix-ponit (TODO)*
 
 ## 3. Ordinary differential equations
