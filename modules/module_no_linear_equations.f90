@@ -1,11 +1,13 @@
 !-----------------------------------------------------------------------
-! Module Newton-Raphson Method
+! Module solving no linear equations using:
+!   1. Newton-Raphson
+!   2. fix-ponit (TODO)
 !
 ! Licensing: This code is distributed under the GNU GPL license.
 ! Author: Carlos Planelles Alemany, planelles20(at)gmail(dot)com
 !-----------------------------------------------------------------------
 
-module module_newton_raphson
+module module_no_linear_equations
 
 use iso_fortran_env, only: real64
 use module_linear_equations

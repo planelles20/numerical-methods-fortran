@@ -6,7 +6,7 @@
 !-----------------------------------------------------------------------
 
 program newton_test
-use module_newton_raphson
+use module_no_linear_equations
 use whatever_function, only: funcion1D, d_funcion1D
 implicit none
 
