@@ -1,7 +1,8 @@
 !-----------------------------------------------------------------------
 ! This module solve linear equations using:
 !   1. LU descomposition
-!   2. QR (TODO)
+!   2. PLU (TODO)
+!   3. QR  (TODO)
 !
 ! Licensing: This code is distributed under the GNU GPL license.
 ! Author: Carlos Planelles Alemany, planelles20(at)gmail(dot)com
