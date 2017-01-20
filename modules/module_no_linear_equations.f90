@@ -61,9 +61,6 @@ subroutine newton_raphson(F, J, x, ite, eps, ok)
         if (error < eps) then
             ok = .true.
             ite = i
-            do k = 1, size(x,1)
-                x(k) = xaux(k)
-            end do
             EXIT
         end if
         if (i == ite) then
@@ -72,5 +69,50 @@ subroutine newton_raphson(F, J, x, ite, eps, ok)
     end do
 end subroutine
 
+
+!-------------------------------------------------------------------------------
+! Fix point
+!   x = g(x)    x in R**m
+!-------------------------------------------------------------------------------
+    subroutine fixPoint(G, x, ite, eps, ok)
+        interface
+            function G(x)
+                use iso_fortran_env, only: real64
+                real(real64), allocatable :: G(:)
+                real(real64), intent(in) :: x(:)
+            end function
+        end interface
+        real(real64), intent(inout) :: x(:)
+        integer, intent(inout) :: ite
+        real(real64), intent(in) :: eps
+        logical, intent(out) :: ok
+        integer :: i, k
+        real(real64), allocatable :: xaux(:)
+        real(real64) :: error
+
+        allocate(xaux(size(x,1)))
+
+        do i = 1, ite
+            do k = 1, size(x,1)
+                xaux(k) = x(k)
+            end do
+
+            x(:) = G(x)
+
+            error = 0._real64
+            do k = 1, size(x,1)
+                error = abs(x(k)-xaux(k))+error
+            end do
+
+            if (error < eps) then
+                ok = .true.
+                ite = i
+                EXIT
+            end if
+            if (i == ite) then
+                ok = .false.
+            end if
+        end do
+    end subroutine
 
 end module

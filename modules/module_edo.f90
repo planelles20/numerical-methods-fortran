@@ -18,6 +18,7 @@
 module module_edo
 
 use iso_fortran_env, only: real64
+use module_no_linear_equations
 implicit none
 
 contains
@@ -49,6 +50,37 @@ contains
             xn = a+(i-1)*step
             yn = EE(:,i-1)
             EE(:,i) = yn + step*(f(xn, yn))
+        end do
+    end function
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Euler implicit
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    function EI(f, a, b, N, y0)
+        real(real64), allocatable :: EI(:,:)
+        interface
+            function f(x, y)
+                use iso_fortran_env, only: real64
+                real(real64), allocatable :: f(:)
+                real(real64), intent(in) :: x, y(:)
+            end function
+        end interface
+        real(real64), intent(in) :: a, b
+        integer, intent(in) :: N
+        real(real64), intent(in) :: y0(:)
+        real(real64) :: xn, step
+        integer :: i
+        real(real64), allocatable :: yn(:)
+
+        allocate(EI(size(y0),N))
+        step = (b-a)/(N-1)
+        EI(:,1) = y0
+
+        do i = 2, N
+            xn = a+i*step
+            yn = EI(:,i-1) + step*(f(xn, yn))
+            !call fixPoint(fun, yn, ite, eps, ok)
+            EI(:,i) = yn
         end do
     end function
 

@@ -64,10 +64,10 @@ contains
         J_funcion3D(3,3) = 3._real64
     end function
 
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    ! ode functions:
-    !   y' = y(x,y)
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! ode functions:
+!   y' = y(x,y)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     function odef1(x, y)
         real(real64), allocatable :: odef1(:)
         real(real64), intent(in) :: x, y(:)
@@ -79,5 +79,23 @@ contains
         odef1(3) =  x - y(1) + y(3)
 
     end function
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! fix point functions:
+!   x = g(x)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    function gfuncion(x)
+        real(real64), allocatable :: gfuncion(:)
+        real(real64), intent(in) :: x(:)
+
+        allocate(gfuncion(size(x)))
+
+        gfuncion(1) = log(1._real64 - x(2))
+        gfuncion(2) = -2.0*x(1) - x(3) - 2._real64
+        gfuncion(3) = (-x(1) - x(2) + 3._real64)/3._real64
+
+    end function
+
 
 end module
