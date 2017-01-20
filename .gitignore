@@ -4,3 +4,4 @@
 
 #output file
 *.o
+*.exe
