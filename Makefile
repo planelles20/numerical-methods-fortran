@@ -17,7 +17,13 @@ test_euler_explicit:
 	gfortran -o ./euler_explicit.exe ./test/euler_explicit.f90 whatever_function.o module_edo.o
 
 test_fix_point:
-	gfortran -o ./fix_point3D.exe ./test/fix_point3D.f90 whatever_function.o module_no_linear_equations.o module_linear_equations.o 
+	gfortran -o ./fix_point3D.exe ./test/fix_point3D.f90 whatever_function.o module_no_linear_equations.o module_linear_equations.o
+
+test_adams_bashforth_2:
+	gfortran -o ./adams_bashforth_2.exe ./test/adams_bashforth_2steps.f90 whatever_function.o module_edo.o
+
+test_adams_bashforth_5:
+	gfortran -o ./adams_bashforth_5.exe ./test/adams_bashforth_5steps.f90 whatever_function.o module_edo.o
 
 clean:
 	rm *.mod *.o *.exe
