@@ -1,7 +1,7 @@
 !-----------------------------------------------------------------------
 ! Module solving no linear equations using:
 !   1. Newton-Raphson
-!   2. fix-ponit (TODO)
+!   2. fix-ponit 
 !
 ! Licensing: This code is distributed under the GNU GPL license.
 ! Author: Carlos Planelles Alemany, planelles20(at)gmail(dot)com
