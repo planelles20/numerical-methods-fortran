@@ -18,7 +18,7 @@ Solving linear, nonlinear equations, ordinary differential equations, ... using 
 ####Runge-Kutta
     Fourth order method (classical)
 ###Multistep
-#### Adams-Bashforth (TODO)
+#### Adams-Bashforth 
 #### Adams-Moulton   (TODO)
 #### Nyström         (TODO)
 #### Mile-Simpson    (TODO)
