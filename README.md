@@ -11,4 +11,14 @@ Solving linear, nonlinear equations, ordinary differential equations, ... using 
     Fix ponit
 
 ## 3. Ordinary differential equations
-    Runge-Kutta (4th order)
+### Monostep
+#### Euler
+    Explicit
+    Implicit (TODO)
+####Runge-Kutta
+    Fourth order method (classical)
+###Multistep
+#### Adams-Bashforth
+#### Adams-Moulton
+#### Nyström
+#### Mile-Simpson
