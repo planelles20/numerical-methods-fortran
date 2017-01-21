@@ -25,4 +25,4 @@ Solving linear, nonlinear equations, ordinary differential equations, ... using 
 
 ## Plot
 The pgplot library is necessary to plot the examples:
-*Shortlink: [`pgplot`](http://www.astro.caltech.edu/~tjp/pgplot/)*
+*[`pgplot`](http://www.astro.caltech.edu/~tjp/pgplot/)*
