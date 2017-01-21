@@ -1,7 +1,7 @@
 !-----------------------------------------------------------------------
 ! Module solving no linear equations using:
 !   1. Newton-Raphson
-!   2. fix-ponit 
+!   2. fix-ponit
 !
 ! Licensing: This code is distributed under the GNU GPL license.
 ! Author: Carlos Planelles Alemany, planelles20(at)gmail(dot)com
@@ -9,7 +9,6 @@
 
 module module_no_linear_equations
 
-use iso_fortran_env, only: real64
 use module_linear_equations
 implicit none
 
@@ -23,25 +22,23 @@ contains
 subroutine newton_raphson(F, J, x, ite, eps, ok)
     interface
         function F(x)
-            use iso_fortran_env, only: real64
-            real(real64), allocatable :: F(:)
-            real(real64), intent(in) :: x(:)
+            real, allocatable :: F(:)
+            real, intent(in) :: x(:)
         end function
     end interface
     interface
         function J(x)
-            use iso_fortran_env, only: real64
-            real(real64), allocatable :: J(:,:)
-            real(real64), intent(in) :: x(:)
+            real, allocatable :: J(:,:)
+            real, intent(in) :: x(:)
         end function
     end interface
-    real(real64), intent(inout) :: x(:)
+    real, intent(inout) :: x(:)
     integer, intent(inout) :: ite
-    real(real64), intent(in) :: eps
+    real, intent(in) :: eps
     logical, intent(out) :: ok
     integer :: i, k
-    real(real64), allocatable :: xaux(:), dx(:)
-    real(real64) :: error
+    real, allocatable :: xaux(:), dx(:)
+    real :: error
 
     allocate(xaux(size(x,1)), dx(size(x,1)))
 
@@ -53,7 +50,7 @@ subroutine newton_raphson(F, J, x, ite, eps, ok)
         do k = 1, size(x,1)
             x(k) = x(k)+dx(k)
         end do
-        error = 0._real64
+        error = 0.0
         do k = 1, size(x,1)
             error = abs(x(k)-xaux(k))+error
         end do
@@ -77,18 +74,17 @@ end subroutine
     subroutine fixPoint(G, x, ite, eps, ok)
         interface
             function G(x)
-                use iso_fortran_env, only: real64
-                real(real64), allocatable :: G(:)
-                real(real64), intent(in) :: x(:)
+                real, allocatable :: G(:)
+                real, intent(in) :: x(:)
             end function
         end interface
-        real(real64), intent(inout) :: x(:)
+        real, intent(inout) :: x(:)
         integer, intent(inout) :: ite
-        real(real64), intent(in) :: eps
+        real, intent(in) :: eps
         logical, intent(out) :: ok
         integer :: i, k
-        real(real64), allocatable :: xaux(:)
-        real(real64) :: error
+        real, allocatable :: xaux(:)
+        real :: error
 
         allocate(xaux(size(x,1)))
 
@@ -99,7 +95,7 @@ end subroutine
 
             x(:) = G(x)
 
-            error = 0._real64
+            error = 0.0
             do k = 1, size(x,1)
                 error = abs(x(k)-xaux(k))+error
             end do

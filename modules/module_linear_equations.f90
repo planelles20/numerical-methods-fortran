@@ -9,7 +9,6 @@
 !-----------------------------------------------------------------------
 module module_linear_equations
 
-use iso_fortran_env, only: real64
 implicit none
 
 contains
@@ -19,12 +18,12 @@ contains
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 subroutine lu(A, L, U)
-    real(real64), intent(in) :: A(:,:)
-    real(real64), intent(out), allocatable :: L(:,:), U(:,:)
+    real, intent(in) :: A(:,:)
+    real, intent(out), allocatable :: L(:,:), U(:,:)
     integer :: i, j
 
     allocate(L(size(A,1),size(A,2)), U(size(A,1),size(A,2)))
-    forall(i=1:size(A,1)) L(i,i) = 1._real64
+    forall(i=1:size(A,1)) L(i,i) = 1.0
     do j = 1, size(A,2)
       do i = 1, j
         U(i,j) = A(i,j) - dot_product(L(i,1:i-1), U(1:i-1,j))
@@ -36,8 +35,8 @@ subroutine lu(A, L, U)
 end subroutine
 
 function ascend(A, b) result(x)
-    real(real64), intent(in) :: A(:,:), b(:)
-    real(real64), allocatable :: x(:)
+    real, intent(in) :: A(:,:), b(:)
+    real, allocatable :: x(:)
     integer :: i, j, n
 
     n = size(A, 2)
@@ -49,8 +48,8 @@ function ascend(A, b) result(x)
 end function
 
 function drop(A, b) result(x)
-    real(real64), intent(in) :: A(:,:), b(:)
-    real(real64), allocatable :: x(:)
+    real, intent(in) :: A(:,:), b(:)
+    real, allocatable :: x(:)
     integer :: i, j, n
 
     n = size(A, 2)
@@ -62,9 +61,9 @@ function drop(A, b) result(x)
 end function
 
 function resol_lu(A, b) result(x)
-    real(real64), intent(in) :: A(:,:), b(:)
-    real(real64), allocatable :: x(:)
-    real(real64), allocatable :: L(:,:), U(:,:)
+    real, intent(in) :: A(:,:), b(:)
+    real, allocatable :: x(:)
+    real, allocatable :: L(:,:), U(:,:)
 
     call lu(A, L, U)
     x = ascend(U, drop(L, b))

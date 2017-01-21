@@ -9,7 +9,7 @@ program newton_test
 use module_linear_equations
 implicit none
 
-real(real64) :: A(3,3), b(3), x(3)
+real :: A(3,3), b(3), x(3)
 
 A = reshape([2,-2,1, 1,3,-2, 3,-1,-1],[3,3], order = [2,1])
 b = [3,1,2]

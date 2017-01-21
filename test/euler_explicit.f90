@@ -9,16 +9,15 @@
 !-----------------------------------------------------------------------
 
 program euler_explicit
-use iso_fortran_env, only: real64
 use module_edo, only: EE
 use whatever_function, only: odef1
 implicit none
 
-real(real64) :: y0(3), a = 0.0_real64, b = 1.0_real64
+real :: y0(3), a = 0.0, b = 1.0
 integer :: i, N = 10
-real(real64), allocatable :: y(:,:)
+real, allocatable :: y(:,:)
 
-y0(:) = [1.0_real64, 1.0_real64, 1.0_real64]
+y0(:) = [1.0, 1.0, 1.0]
 
 y = EE(odef1, a, b, N, y0)
 

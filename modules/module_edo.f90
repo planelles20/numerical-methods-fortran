@@ -7,7 +7,7 @@
 !       1.2. Runge-Kutta
 !           1.2.1.  fourth-order method (classical)
 !   2. Multistep
-!       2.1 Adams-Bashforth 
+!       2.1 Adams-Bashforth
 !       2.2 Adams-Moulton   (TODO)
 !       2.3 Nyström         (TODO)
 !       2.4 Mile-Simpson    (TODO)
@@ -21,7 +21,6 @@
 
 module module_edo
 
-use iso_fortran_env, only: real64
 use module_no_linear_equations
 implicit none
 
@@ -31,20 +30,19 @@ contains
 ! Euler Explicit
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     function EE(f, a, b, N, y0)
-        real(real64), allocatable :: EE(:,:)
+        real, allocatable :: EE(:,:)
         interface
             function f(x, y)
-                use iso_fortran_env, only: real64
-                real(real64), allocatable :: f(:)
-                real(real64), intent(in) :: x, y(:)
+                real, allocatable :: f(:)
+                real, intent(in) :: x, y(:)
             end function
         end interface
-        real(real64), intent(in) :: a, b
+        real, intent(in) :: a, b
         integer, intent(in) :: N
-        real(real64), intent(in) :: y0(:)
-        real(real64) :: xn, step
+        real, intent(in) :: y0(:)
+        real :: xn, step
         integer :: i
-        real(real64), allocatable :: yn(:)
+        real, allocatable :: yn(:)
 
         allocate(EE(size(y0),N))
         step = (b-a)/(N-1)
@@ -61,20 +59,19 @@ contains
 ! Euler implicit
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     function EI(f, a, b, N, y0)
-        real(real64), allocatable :: EI(:,:)
+        real, allocatable :: EI(:,:)
         interface
             function f(x, y)
-                use iso_fortran_env, only: real64
-                real(real64), allocatable :: f(:)
-                real(real64), intent(in) :: x, y(:)
+                real, allocatable :: f(:)
+                real, intent(in) :: x, y(:)
             end function
         end interface
-        real(real64), intent(in) :: a, b
+        real, intent(in) :: a, b
         integer, intent(in) :: N
-        real(real64), intent(in) :: y0(:)
-        real(real64) :: xn, step
+        real, intent(in) :: y0(:)
+        real :: xn, step
         integer :: i
-        real(real64), allocatable :: yn(:)
+        real, allocatable :: yn(:)
 
         allocate(EI(size(y0),N))
         step = (b-a)/(N-1)
@@ -92,20 +89,19 @@ contains
 ! Runge-Kutta fourth-order method (classical)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     function RK4(f, a, b, N, y0)
-        real(real64), allocatable :: RK4(:,:)
+        real, allocatable :: RK4(:,:)
         interface
             function f(x, y)
-                use iso_fortran_env, only: real64
-                real(real64), allocatable :: f(:)
-                real(real64), intent(in) :: x, y(:)
+                real, allocatable :: f(:)
+                real, intent(in) :: x, y(:)
             end function
         end interface
-        real(real64), intent(in) :: a, b
+        real, intent(in) :: a, b
         integer, intent(in) :: N
-        real(real64), intent(in) :: y0(:)
-        real(real64) :: xn, step
+        real, intent(in) :: y0(:)
+        real :: xn, step
         integer :: i
-        real(real64), allocatable :: yn(:), k1(:), k2(:), k3(:), k4(:)
+        real, allocatable :: yn(:), k1(:), k2(:), k3(:), k4(:)
 
         allocate(RK4(size(y0),N))
         allocate(k1(size(y0)), k2(size(y0)), k3(size(y0)), k4(size(y0)))
@@ -128,19 +124,18 @@ contains
 ! Adams–Bashforth two steps
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     function AB2(f, a, b, N, y0)
-        real(real64), allocatable :: AB2(:,:)
+        real, allocatable :: AB2(:,:)
         interface
             function f(x, y)
-                use iso_fortran_env, only: real64
-                real(real64), allocatable :: f(:)
-                real(real64), intent(in) :: x, y(:)
+                real, allocatable :: f(:)
+                real, intent(in) :: x, y(:)
             end function
         end interface
-        real(real64), intent(in) :: a, b
+        real, intent(in) :: a, b
         integer, intent(in) :: N
-        real(real64), intent(in) :: y0(:)
-        real(real64) :: xn0, xn1, step
-        real(real64), allocatable :: yn0(:), yn1(:)
+        real, intent(in) :: y0(:)
+        real :: xn0, xn1, step
+        real, allocatable :: yn0(:), yn1(:)
         integer :: i
 
         allocate(AB2(size(y0),N))
@@ -165,19 +160,18 @@ contains
 ! Adams–Bashforth five steps
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     function AB5(f, a, b, N, y0)
-        real(real64), allocatable :: AB5(:,:)
+        real, allocatable :: AB5(:,:)
         interface
             function f(x, y)
-                use iso_fortran_env, only: real64
-                real(real64), allocatable :: f(:)
-                real(real64), intent(in) :: x, y(:)
+                real, allocatable :: f(:)
+                real, intent(in) :: x, y(:)
             end function
         end interface
-        real(real64), intent(in) :: a, b
+        real, intent(in) :: a, b
         integer, intent(in) :: N
-        real(real64), intent(in) :: y0(:)
-        real(real64) :: step, baux, xn1, xn2, xn3, xn4, xn5
-        real(real64), allocatable :: yn1(:), yn2(:), yn3(:), yn4(:), yn5(:)
+        real, intent(in) :: y0(:)
+        real :: step, baux, xn1, xn2, xn3, xn4, xn5
+        real, allocatable :: yn1(:), yn2(:), yn3(:), yn4(:), yn5(:)
         integer :: i
 
         allocate(AB5(size(y0),N))

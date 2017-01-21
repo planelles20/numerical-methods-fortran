@@ -8,16 +8,15 @@
 !-----------------------------------------------------------------------
 
 program fix_point3D
-use iso_fortran_env, only: real64
 use module_no_linear_equations
 use whatever_function, only: gfuncion
 implicit none
 
-real(real64) :: x0(3), eps = 1e-10_real64
+real:: x0(3), eps = 1e-10
 logical :: ok
 integer :: ite = 100
 
-x0(:) = [2._real64, -1._real64, 20._real64]
+x0(:) = [2.0, -1.0, 20.0]
 
 print *, "Initial vector:"
 print *, x0

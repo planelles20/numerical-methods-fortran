@@ -10,7 +10,7 @@ use module_no_linear_equations
 use whatever_function, only: funcion1D, d_funcion1D
 implicit none
 
-real(real64) :: x0(1) = 0.0_real64 , eps = 1e-5
+real :: x0(1) = 0.0 , eps = 1e-5
 logical :: ok
 integer :: ite = 100
 
