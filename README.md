@@ -18,7 +18,11 @@ Solving linear, nonlinear equations, ordinary differential equations, ... using 
 ####Runge-Kutta
     Fourth order method (classical)
 ###Multistep
-#### Adams-Bashforth 
+#### Adams-Bashforth
 #### Adams-Moulton   (TODO)
 #### Nyström         (TODO)
 #### Mile-Simpson    (TODO)
+
+## Plot
+The pgplot library is necessary to plot the examples:
+*Shortlink: [`pgplot`](http://www.astro.caltech.edu/~tjp/pgplot/)*
