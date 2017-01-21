@@ -26,3 +26,6 @@ Solving linear, nonlinear equations, ordinary differential equations, ... using 
 ## Plot
 The pgplot library is necessary to plot the examples:
 *[`pgplot`](http://www.astro.caltech.edu/~tjp/pgplot/)*
+
+### Plot example 1 ordinary differential equation (3D)
+![example1](https://github.com/planelles20/numerical_methods_fortran/blob/master/img/plot1.png)
