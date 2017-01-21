@@ -7,7 +7,7 @@
 
 
 program plot_ode_fun1
-use module_edo, only: rk4
+use module_edo, only: AB5
 use lotka_volterra_function, only: lvf1
 implicit none
 
@@ -24,13 +24,13 @@ if (IER.NE.1) stop
 
 y0(:) = [10.0, 5.0]
 
-y = rk4(lvf1, a, b, N, y0)
+y = AB5(lvf1, a, b, N, y0)
 
 do i=1,N
     x(i) = a + (b-a)/(N-1)*(i-1)
 end do
 
-call PGENV(a, b, 0.0, 40.0, 0, 1)
+call PGENV(a, b, 0.0, 80.0, 0, 1)
 call PGLAB('(t)', '(y)', 'Lotka-Volterra equation')
 CALL PGSCI(2)
 call PGLINE(N,x,y(1,:))

@@ -146,8 +146,8 @@ contains
         AB2(:,2) = y0 + step*f(a, y0)
 
         do i = 3, N
-            xn0 = a+(i-3)*step
-            xn1 = a+(i-2)*step
+            xn0 = a+(i-2)*step
+            xn1 = a+(i-1)*step
 
             yn0 = AB2(:,i-2)
             yn1 = AB2(:,i-1)
@@ -180,14 +180,14 @@ contains
         AB5(:,1) = y0
         !startup (Runge-Kutta 4th)
         baux = a+step*4
-        AB5(:,2:5) = RK4(f, a, baux, 5, y0)
+        AB5(:,2:4) = RK4(f, a, baux, 4, y0)
 
-        do i = 6, N
-            xn1 = a+(i-6)*step
-            xn2 = a+(i-5)*step
-            xn3 = a+(i-4)*step
-            xn4 = a+(i-3)*step
-            xn5 = a+(i-2)*step
+        do i = 5, N
+            xn1 = a+(i-5)*step
+            xn2 = a+(i-4)*step
+            xn3 = a+(i-3)*step
+            xn4 = a+(i-2)*step
+            xn5 = a+(i-1)*step
 
             yn1 = AB5(:,i-5)
             yn2 = AB5(:,i-4)
@@ -195,8 +195,8 @@ contains
             yn4 = AB5(:,i-2)
             yn5 = AB5(:,i-1)
 
-            AB5(:,i) = AB5(:,i-1) + step*(1901.0/720.0*f(xn5,yn5)-1387.0/360.0*f(xn4,yn4)+&
-                       &109.0/30.0*f(xn3,yn3)-367.0/360.0*f(xn2,yn2)+251.0/720.0*f(xn1,yn1))
+            AB5(:,i) = yn5 + step*(1901.0/720.0*f(xn5,yn5)-1387.0/360.0*f(xn4,yn4)+&
+                       &109.0/30.0*f(xn3,yn3)-637.0/360.0*f(xn2,yn2)+251.0/720.0*f(xn1,yn1))
         end do
     end function
 
