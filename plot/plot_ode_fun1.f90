@@ -1,5 +1,5 @@
 !-----------------------------------------------------------------------
-! Program to plot Adams–Bashforth 2 steps
+! Program to plot Adams–Bashforth 5 steps
 !
 ! Licensing: This code is distributed under the GNU GPL license.
 ! Author: Carlos Planelles Alemany, planelles20(at)gmail(dot)com
