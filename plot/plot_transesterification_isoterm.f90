@@ -24,7 +24,7 @@ IER = PGBEG(0,'?',1,1)
 if (IER.NE.1) stop
 
 !initial concentration
-! Trigliceridos = 1.0 mol
+! Triglycerides = 1.0 mol
 ! Alcohol = 6.0 mol
 y0(:) = [1.0, 0.0, 0.0, 0.0, 6.0, 0.0]
 
@@ -34,10 +34,15 @@ do i=1,N
     t(i) = a + (b-a)/(N-1)*(i-1)
 end do
 
-print *, reacc_trans_isoterm(0.0, y0)
-
 call PGENV(a, b, 0.0, 6.5, 0, 1)
 call PGLAB('t(min)', 'concentration (mol)', 'isotherm transesterification reaction (50 C)')
+call PGMTXT ('RV', 0.0, 0.95, 1.5, "Triglycerides (Red)")
+call PGMTXT ('RV', 0.0, 0.90, 1.45, "Diglycerides (Green)")
+call PGMTXT ('RV', 0.0, 0.85, 1.40, "Monoglycerides (Blue)")
+call PGMTXT ('RV', 0.0, 0.80, 1.57, "Glycerin (Cyan)")
+call PGMTXT ('RV', 0.0, 0.75, 1.5, "Alcohol (Magenta)")
+call PGMTXT ('RV', 0.0, 0.70, 1.5, "Ethylester (Yellow)")
+
 call PGSCI(2)
 call PGLINE(N,t,y(1,:))
 call PGSCI(3)

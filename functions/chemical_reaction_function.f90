@@ -20,7 +20,7 @@ contains
         real :: k1, k2, k3, k4, k5, k6
         allocate(reacc_trans_isoterm(size(y)))
 
-        ! reaction constants  50 C in (mole*min)^(-1)
+        ! reaction constants at 50 C in (mole*min)^(-1)
         k1 = 0.05
         k2 = 0.11
         k3 = 0.215
@@ -28,12 +28,12 @@ contains
         k5 = 0.242
         k6 = 0.007
 
-        !y(1): Trigliceridos.
-        !y(2): Digliceridos.
-        !y(3): Monogliceridos.
-        !y(4): Glicerina.
+        !y(1): Triglycerides.
+        !y(2): Diglycerides.
+        !y(3): Monoglycerides.
+        !y(4): Glycerin.
         !y(5): Alcohol.
-        !y(6): Etilester.
+        !y(6): Ethylester.
 
 
         reacc_trans_isoterm(1) = -k1*y(1)*y(5)+k2*y(2)*y(6)
