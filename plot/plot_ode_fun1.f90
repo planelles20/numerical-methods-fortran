@@ -30,11 +30,11 @@ end do
 
 call PGENV(a, b, -5.0, 10.0, 0, 1)
 call PGLAB('(x)', '(y)', 'ODE Graph')
-CALL PGSCI(2)
+call PGSCI(2)
 call PGLINE(N,x,y(1,:))
-CALL PGSCI(3)
+call PGSCI(3)
 call PGLINE(N,x,y(2,:))
-CALL PGSCI(4)
+call PGSCI(4)
 call PGLINE(N,x,y(3,:))
 call PGEND
-END
+end

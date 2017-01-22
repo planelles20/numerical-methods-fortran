@@ -1,5 +1,5 @@
 compile_modules:
-	gfortran -c ./functions/whatever_function.f90 ./modules/module_linear_equations.f90  ./modules/module_no_linear_equations.f90 ./modules/module_edo.f90 ./functions/lotka_volterra_function.f90
+	gfortran -c ./functions/whatever_function.f90 ./modules/module_linear_equations.f90  ./modules/module_no_linear_equations.f90 ./modules/module_edo.f90 ./functions/lotka_volterra_function.f90 ./functions/chemical_reaction_function.f90
 
 test_rk4:
 	gfortran -o ./rk4.exe ./test/rk4_test.f90 whatever_function.o module_edo.o
@@ -33,6 +33,9 @@ plot_lotka_volterra1:
 
 plot_lotka_volterra2:
 	gfortran -o plotlv2.exe ./plot/plot_lotka_volterra2.f90 -L/usr/local/pgplot -L/usr/X11/lib -lpgplot -lX11 lotka_volterra_function.o module_edo.o
+
+plot_transesterification_iso:
+	gfortran -o transes_iso.exe ./plot/plot_transesterification_isoterm.f90 -L/usr/local/pgplot -L/usr/X11/lib -lpgplot -lX11 chemical_reaction_function.o module_edo.o	
 
 clean:
 	rm *.mod *.o *.exe
