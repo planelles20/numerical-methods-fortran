@@ -33,5 +33,9 @@ The pgplot library is necessary to plot the examples:
 
 ### Plot example 2: Lotka–Volterra example 1
 ![example2](https://github.com/planelles20/numerical_methods_fortran/blob/master/img/lotka_volterra1.png)
+
 ### Plot example 3: Lotka–Volterra example 2
 ![example3](https://github.com/planelles20/numerical_methods_fortran/blob/master/img/lotka_volterra2.png)
+
+### Plot example 4: isotherm transesterification reaction at 50 C
+![example4](https://github.com/planelles20/numerical_methods_fortran/blob/master/img/transesterification_isoterm.png)
