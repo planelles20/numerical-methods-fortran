@@ -39,3 +39,9 @@ The pgplot library is necessary to plot the examples:
 
 ### Plot example 4: isotherm transesterification reaction at 50 C (*[`link`](http://www.cubasolar.cu/biblioteca/Ecosolar/Ecosolar22/HTML/articulo02.htm)*)
 ![example4](https://github.com/planelles20/numerical_methods_fortran/blob/master/img/transesterification_isoterm.png)
+
+### Plot example 5: Bogdanov-Takens bifurcation
+![example3](https://github.com/planelles20/numerical-methods-fortran/blob/master/img/bogdanov_takens.png)
+
+### Plot example 6: pendulum
+![example3](https://github.com/planelles20/numerical-methods-fortran/blob/master/img/pendulum.png)
