@@ -48,4 +48,24 @@ contains
          pendulum(2) = -g/l*sin(y(1))-c/(m*l)*y(2)
       end function
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! lorenz attractor
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    function lorenz(x, y)
+        real, allocatable :: lorenz(:)
+        real, intent(in) :: x, y(:)
+
+        real :: a, b, c
+
+        allocate(lorenz(size(y)))
+
+        a = 10.0
+        b = 28.0
+        c = 8./3.
+
+        lorenz(1) = a*(y(2)-y(1))
+        lorenz(2) = y(1)*(b-y(3))-y(2)
+        lorenz(3) = y(1)*y(2)-c*y(3)
+    end function
+
 end module

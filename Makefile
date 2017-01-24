@@ -43,5 +43,8 @@ plot_bogdanov_takens:
 plot_pendulum:
 	gfortran -o pendulum.exe ./plot/plot_pendulum.f90 -L/usr/local/pgplot -L/usr/X11/lib -lpgplot -lX11 dynamical_systems_function.o module_edo.o
 
+plot_lorenz:
+	gfortran -o lorenz.exe ./plot/plot_lorenz_attractor.f90 -I/usr/local/dislin/gf -ldislin dynamical_systems_function.o module_edo.o
+
 clean:
 	rm *.mod *.o *.exe
