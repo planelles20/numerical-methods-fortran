@@ -23,7 +23,6 @@ program plot_lorenz_attractor
 
     y = AB5(lorenz, a, b, N, y0)
 
-    print *, y(:,N)
     !plot using dislin lib
 
     call SCRMOD('REVERS')

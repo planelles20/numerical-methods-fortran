@@ -47,4 +47,4 @@ plot_lorenz:
 	gfortran -o lorenz.exe ./plot/plot_lorenz_attractor.f90 -I/usr/local/dislin/gf -ldislin dynamical_systems_function.o module_edo.o
 
 clean:
-	rm *.mod *.o *.exe
+	rm *.mod *.o *.exe *.met
