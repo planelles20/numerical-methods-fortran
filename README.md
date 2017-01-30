@@ -9,8 +9,17 @@ Solving linear, nonlinear equations, ordinary differential equations, ... using 
 ## 2. No linear equations
     Newton-Raphson
     Fix point
+## 3. Integration Methods
+    One-dimensional
+    <ul>
+        <li> Rectangle rule. </li>
+        <li> Trapezoidal rule. </li>
+        <li> Simpson's rule. </li>
+    </ul>
 
-## 3. Ordinary differential equations
+    N-dimensional
+
+## 4. Ordinary differential equations
 ### Monostep
 #### Euler
     Explicit

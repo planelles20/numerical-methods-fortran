@@ -56,34 +56,53 @@ contains
     end function
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-! Euler implicit
+! Euler implicit (TODO)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    function EI(f, a, b, N, y0)
-        real, allocatable :: EI(:,:)
-        interface
-            function f(x, y)
-                real, allocatable :: f(:)
-                real, intent(in) :: x, y(:)
-            end function
-        end interface
-        real, intent(in) :: a, b
-        integer, intent(in) :: N
-        real, intent(in) :: y0(:)
-        real :: xn, step
-        integer :: i
-        real, allocatable :: yn(:)
-
-        allocate(EI(size(y0),N))
-        step = (b-a)/(N-1)
-        EI(:,1) = y0
-
-        do i = 2, N
-            xn = a+(i-1)*step
-            yn = EI(:,i-1) + step*(f(xn, yn))
-            !call fixPoint(fun, yn, ite, eps, ok)
-            EI(:,i) = yn
-        end do
-    end function
+!    function EI(f, a, b, N, y0)
+!        real, allocatable :: EI(:,:)
+!        interface
+!            function f(x, y)
+!                real, allocatable :: f(:)
+!                real, intent(in) :: x, y(:)
+!        end interface
+!            end function
+!        real, intent(in) :: a, b
+!        real :: xn, step, eps
+!        integer :: i
+!        real, allocatable :: yn(:)
+!        logical :: ok
+!
+!        allocate(EI(size(y0),N))
+!        eps = 1e-5
+!        step = (b-a)/(N-1)
+!        EI(:,1) = y0
+!
+!        function fun(f, x, yans)
+!            real, allocatable :: fun(:)
+!            interface
+!                function f(x, y)
+!                    real, allocatable :: f(:)
+!                    real, intent(in) :: x, y(:)
+!                end function
+!            end interface
+!            real, intent(in) :: x, yans(:)
+!            real :: y(:)
+!
+!            allocate(fun(size(y)))
+!
+!            y(:) = yans + step*f(x,yans)
+!
+!            fun(:) = yans + step*f(x,yans)
+!
+!        end function
+!
+!        do i = 2, N
+!            xn = a+i*step
+!            yn = EI(:,i-1) + step*(f(xn, yn))
+!            !call fixPoint(fun, yn, ite, eps, ok)
+!            EI(:,i) = yn
+!        end do
+!    end function
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Runge-Kutta fourth-order method (classical)

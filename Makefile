@@ -1,5 +1,5 @@
 compile_modules:
-	gfortran -c ./functions/whatever_function.f90 ./modules/module_linear_equations.f90  ./modules/module_no_linear_equations.f90 ./modules/module_edo.f90 ./functions/lotka_volterra_function.f90 ./functions/chemical_reaction_function.f90 ./functions/dynamical_systems_function.f90
+	gfortran -c ./functions/whatever_function.f90 ./modules/module_linear_equations.f90  ./modules/module_no_linear_equations.f90 ./modules/module_edo.f90 ./functions/lotka_volterra_function.f90 ./functions/chemical_reaction_function.f90 ./functions/dynamical_systems_function.f90 ./functions/one_dimension_function.f90 ./modules/module_integrate.f90
 
 test_rk4:
 	gfortran -o ./rk4.exe ./test/rk4_test.f90 whatever_function.o module_edo.o
@@ -24,6 +24,9 @@ test_adams_bashforth_2:
 
 test_adams_bashforth_5:
 	gfortran -o ./adams_bashforth_5.exe ./test/adams_bashforth_5steps.f90 whatever_function.o module_edo.o
+
+test_integrate_one_dim:
+	gfortran -o ./integrate_one_dim.exe ./test/integrate_one_dimension.f90 one_dimension_function.o module_integrate.o
 
 plot1:
 	gfortran -o plot1.exe ./plot/plot_ode_fun1.f90 -L/usr/local/pgplot -L/usr/X11/lib -lpgplot -lX11 whatever_function.o module_edo.o
