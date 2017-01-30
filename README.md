@@ -38,7 +38,7 @@ The pgplot and dislin libraries are necessary to plot the examples:
 ### Example 2: Lotka–Volterra 1
 
 <p align="center">
-  <img src="http://latex.codecogs.com/gif.latex?%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D%20%26%5Cfrac%7Bdy_1%7D%7Bdt%7D%20%3D%200.1y_1-0.02y_1y_2%20%5C%5C%20%26%5Cfrac%7Bdy_2%7D%7Bdt%7D%20%3D%20-0.3y_2&plus;0.01y_1y_2%5C%5C%20%26y_1%280%29%20%3D%2010%20%5C%5C%20%26y_2%280%29%20%3D%205%20%5Cend%7Bmatrix%7D%5Cright.?raw=true" alt="lotka_volterra 1 equation"/>
+  <img src="http://latex.codecogs.com/gif.latex?%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D%20%26%5Cfrac%7Bdy_1%7D%7Bdt%7D%20%3D%200.1y_1-0.02y_1y_2%20%5C%5C%20%26%5Cfrac%7Bdy_2%7D%7Bdt%7D%20%3D%20-0.3y_2&plus;0.01y_1y_2%5C%5C%20%26y_1%280%29%20%3D%2010%20%5C%5C%20%26y_2%280%29%20%3D%205%20%5Cend%7Bmatrix%7D%5Cright." alt="lotka_volterra 1 equation"/>
 </p>
 
 <p align="center">
