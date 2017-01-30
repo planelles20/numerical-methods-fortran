@@ -26,7 +26,7 @@ test_adams_bashforth_5:
 	gfortran -o ./adams_bashforth_5.exe ./test/adams_bashforth_5steps.f90 whatever_function.o module_edo.o
 
 test_integrate_one_dim:
-	gfortran -o ./integrate_one_dim.exe ./test/integrate_one_dimension.f90 one_dimension_function.o module_integrate.o
+	gfortran -o ./integrate_one_dim.exe ./test/integrate_one_dimension.f90 -I/usr/local/dislin/gf -ldislin one_dimension_function.o module_integrate.o
 
 plot1:
 	gfortran -o plot1.exe ./plot/plot_ode_fun1.f90 -L/usr/local/pgplot -L/usr/X11/lib -lpgplot -lX11 whatever_function.o module_edo.o

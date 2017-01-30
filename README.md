@@ -120,5 +120,9 @@ Where:
 ### Example 8: one-dimensional integral
 
 <p align="center">
-  <img src="http://latex.codecogs.com/gif.latex?%5Cint_0%5E1%20%5Cfrac%7B1%7D%7B1&plus;x%5E2%7D%20%3D%20%5Cpi" alt="one-dimensional integral equation"/>
+  <img src="http://latex.codecogs.com/gif.latex?%5Cint_0%5E1%20%5Cfrac%7B4%7D%7B1&plus;x%5E2%7D%20%3D%20%5Cpi" alt="one-dimensional integral equation"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/planelles20/numerical-methods-fortran/blob/master/img/one_dim_funct.png?raw=true" alt="one-dimensional function figure"/>
 </p>
