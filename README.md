@@ -11,11 +11,9 @@ Solving linear, nonlinear equations, ordinary differential equations, ... using 
     Fix point
 ## 3. Integration Methods
     One-dimensional
-    <ul>
-        <li> Rectangle rule. </li>
-        <li> Trapezoidal rule. </li>
-        <li> Simpson's rule. </li>
-    </ul>
+        - Rectangle rule.
+        - Trapezoidal rule.
+        - Simpson's rule.
 
     N-dimensional
 
