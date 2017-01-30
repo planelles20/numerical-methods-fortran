@@ -1,5 +1,5 @@
 # Numerical methods in fortran
-Solving linear, nonlinear equations, ordinary differential equations, ... using numerical methods in fortran
+Solving linear, nonlinear equations, integral, ordinary differential equations, ... using numerical methods in fortran
 
 ## 1. Linear equations:
     LU
@@ -115,4 +115,10 @@ Where:
 
 <p align="center">
   <img src="https://github.com/planelles20/numerical-methods-fortran/blob/master/img/lorenz.png?raw=true" alt="Lorenz figure"/>
+</p>
+
+### Example 8: one-dimensional integral
+
+<p align="center">
+  <img src="http://latex.codecogs.com/gif.latex?%5Cint_0%5E1%20%5Cfrac%7B1%7D%7B1&plus;x%5E2%7D%20%3D%20%5Cpi" alt="one-dimensional integral equation"/>
 </p>
