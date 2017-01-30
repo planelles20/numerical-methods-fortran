@@ -67,12 +67,14 @@ The pgplot and dislin libraries are necessary to plot the examples:
 </p>
 
 Where:
-    * [TG] Triglycerides.
-    * [DG] Diglycerides.
-    * [MG] Monoglycerides.
-    * [GL] Glycerin.
-    * [A]  Alcohol.
-    * [E]  Ethylester.
+<ul>
+    <li> [TG] Triglycerides. </li>
+    <li> [DG] Diglycerides. </li>
+    <li> [MG] Monoglycerides. </li>
+    <li> [GL] Glycerin. </li>
+    <li> [A]  Alcohol. </li>
+    <li> [E]  Ethylester. </li>
+</ul>
 
 <p align="center">
   <img src="https://github.com/planelles20/numerical_methods_fortran/blob/master/img/transesterification_isoterm.png?raw=true" alt="transesterification figure"/>
