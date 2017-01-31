@@ -9,12 +9,12 @@
 
 program integrate_one_dimension
 use dislin
-use module_integrate, only: rectangle
+use module_integrate, only: rectangle, trapezoidal, simpson
 use one_dimension_function, only: function1
 implicit none
 
-real :: a = 0.0, b = 1.0, sol
-integer :: N = 10000
+real :: a = 0.0, b = 1.0, sol1, sol2, sol3
+integer :: N = 256
 real, allocatable :: XRAY(:), Y1RAY(:)
 integer :: i, IC
 
@@ -25,7 +25,9 @@ do i = 1, N
     Y1RAY(i) = function1(XRAY(i))
 end do
 
-sol = rectangle(function1, a, b, N)
+sol1 = rectangle(function1, a, b, N)
+sol2 = trapezoidal(function1, a, b, N)
+sol3 = simpson(function1, a, b, N)
 
 CALL METAFL('CONS')
 CALL SCRMOD('REVERS')
@@ -56,7 +58,11 @@ CALL COLOR('RED')
 CALL CURVE (XRAY, Y1RAY, N)
 CALL DISFIN()
 
-print *, "Solution of: \int_0^1 4/(x+x**2) = "
-print *, sol
+print *, "Solution using rectangle rule:"
+print *, sol1
+print *, "Solution using trapezoidal rule:"
+print *, sol2
+print *, "Solution using Simpson's rule:"
+print *, sol3
 
 end program

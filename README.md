@@ -12,8 +12,8 @@ Solving linear, nonlinear equations, integral, ordinary differential equations, 
 ## 3. Integration Methods
     One-dimensional
         - Rectangle rule.
-        - Trapezoidal rule. (TODO)
-        - Simpson's rule.   (TODO)
+        - Trapezoidal rule.
+        - Simpson's rule.   
 
     N-dimensional
 
