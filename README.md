@@ -14,8 +14,13 @@ Solving linear, nonlinear equations, integral, ordinary differential equations, 
         - Rectangle rule.
         - Trapezoidal rule.
         - Simpson's rule.   
+        - Gauss-Hermite     (TODO)
+        - Gauss-Laguerre    (TODO)
 
     N-dimensional
+        - Monte Carlo       (TODO)
+        - Sparse grids      (TODO)
+        - Bayesian Quadrature (TODO)
 
 ## 4. Ordinary differential equations
 ### Monostep
