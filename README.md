@@ -9,6 +9,7 @@ Solving linear, nonlinear equations, integral, ordinary differential equations, 
 ## 2. No linear equations
     Newton-Raphson
     Fix point
+    
 ## 3. Integration Methods
     One-dimensional
         - Rectangle rule.
