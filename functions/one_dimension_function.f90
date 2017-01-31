@@ -18,7 +18,7 @@ contains
         real :: function1
         real, intent(in) :: x
 
-        function1 = 4/(1+x**2)
+        function1 = 4.0/(1.0+x**2.0)
     end function
 
 end module
