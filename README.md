@@ -24,16 +24,16 @@ Solving linear, nonlinear equations, integral, ordinary differential equations, 
         - Bayesian Quadrature (TODO)
 
 ## 4. Ordinary differential equations
-### Monostep
-    Euler explicit
-    Euler implicit (TODO)
-    Runge-Kutta fourth order method (classical)
-###Multistep
-    Adams-Bashforth
-    Adams-Moulton   (TODO)
-    Nyström         (TODO)
-    Mile-Simpson    (TODO)
-    Backward differentiation formula (TODO)
+    Monostep
+        - Euler explicit
+        - Euler implicit (TODO)
+        - Runge-Kutta fourth order method (classical)
+    Multistep
+        - Adams-Bashforth
+        - Adams-Moulton   (TODO)
+        - Nyström         (TODO)
+        - Mile-Simpson    (TODO)
+        - Backward differentiation formula (TODO)
 
 ## Examples
 The pgplot and dislin libraries are necessary to plot the examples:
