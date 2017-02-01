@@ -1,11 +1,14 @@
 !-----------------------------------------------------------------------
-! Program to solve linear systems using LU descomposition
+! Program to solve linear systems using:
+!   1. LU descomposition
+!   2. PLU (TODO)
+!   3. QR (TODO)
 !
 ! Licensing: This code is distributed under the GNU GPL license.
 ! Author: Carlos Planelles Alemany, planelles20(at)gmail(dot)com
 !-----------------------------------------------------------------------
 
-program newton_test
+program linear_sys
 use module_linear_equations
 implicit none
 

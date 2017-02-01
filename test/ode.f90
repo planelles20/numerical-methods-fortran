@@ -1,11 +1,11 @@
 !-----------------------------------------------------------------------
-! Program to testAdams–Bashforth 2 steps
+! Program to solve ordinary differential equations
 !
 ! Licensing: This code is distributed under the GNU GPL license.
 ! Author: Carlos Planelles Alemany, planelles20(at)gmail(dot)com
 !-----------------------------------------------------------------------
 
-program rk4_test
+program ode
 use module_edo, only: AB2
 use whatever_function, only: odef1
 implicit none
