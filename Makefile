@@ -25,15 +25,11 @@ FUNCTFILES = $(FUNCTDIR)/chemical_reaction_function.f90 \
 			 $(FUNCTDIR)/whatever_function.f90
 
 #test files
-TESTFILES = $(TESTDIR)/linear_sys_lu.f90 \
-			$(TESTDIR)/adams_bashforth_5steps.f90 \
-			$(TESTDIR)/euler_explicit.f90 \
-			$(TESTDIR)/fix_point3D.f90 \
+TESTFILES = $(TESTDIR)/linear_sys.f90 \
+			$(TESTDIR)/ode.f90 \
+			$(TESTDIR)/fix_point.f90 \
 			$(TESTDIR)/integrate_one_dimension.f90 \
-			$(TESTDIR)/adams_bashforth_2steps.f90 \
-			$(TESTDIR)/newton_test1D.f90 \
-			$(TESTDIR)/newton_test3D.f90 \
-			$(TESTDIR)/rk4_test.f90
+			$(TESTDIR)/newton_test.f90 \
 
 #plots files
 PLOTSFILES = $(PLOTDIR)/plot_bogdanov_takens_bifurcation.f90 \
@@ -47,14 +43,11 @@ PLOTSFILES = $(PLOTDIR)/plot_bogdanov_takens_bifurcation.f90 \
 all : compilar exetest exeplots clean
 
 exetest :
-	$(FC) -o rk4.exe rk4_test.o whatever_function.o module_edo.o
-	$(FC) -o newton1D.exe newton_test1D.o whatever_function.o module_linear_equations.o  module_no_linear_equations.o
-	$(FC) -o newton3D.exe newton_test3D.o whatever_function.o module_linear_equations.o module_no_linear_equations.o
-	$(FC) -o lu.exe linear_sys_lu.o whatever_function.o module_linear_equations.o
-	$(FC) -o euler_explicit.exe euler_explicit.o whatever_function.o module_edo.o
-	$(FC) -o fix_point3D.exe fix_point3D.o whatever_function.o module_no_linear_equations.o module_linear_equations.o
-	$(FC) -o adams_bashforth_2.exe adams_bashforth_2steps.o whatever_function.o module_edo.o
-	$(FC) -o adams_bashforth_5.exe adams_bashforth_5steps.o whatever_function.o module_edo.o
+	$(FC) -o test_newton.exe newton_test.o whatever_function.o module_linear_equations.o module_no_linear_equations.o
+	$(FC) -o test_linear.exe linear_sys.o whatever_function.o module_linear_equations.o
+	$(FC) -o test_fix_point.exe fix_point.o whatever_function.o module_no_linear_equations.o module_linear_equations.o
+	$(FC) -o test_ode.exe ode.o whatever_function.o module_edo.o
+	$(FC) -o test_integrate_one.exe integrate_one_dimension.o $(DISLINLIB) one_dimension_function.o module_integrate.o
 
 exeplots :
 	$(FC) -o plot1.exe plot_ode_fun1.o $(PGPLOTLIB) whatever_function.o module_edo.o
