@@ -1,53 +1,90 @@
-compile_modules:
-	gfortran -c ./functions/whatever_function.f90 ./modules/module_linear_equations.f90  ./modules/module_no_linear_equations.f90 ./modules/module_edo.f90 ./functions/lotka_volterra_function.f90 ./functions/chemical_reaction_function.f90 ./functions/dynamical_systems_function.f90 ./functions/one_dimension_function.f90 ./modules/module_integrate.f90
+# The compiler
+FC = gfortran
 
-test_rk4:
-	gfortran -o ./rk4.exe ./test/rk4_test.f90 whatever_function.o module_edo.o
+# libraries to plot
+DISLINLIB = -I/usr/local/dislin/gf -ldislin
+PGPLOTLIB = -L/usr/local/pgplot -L/usr/X11/lib -lpgplot -lX11
 
-test_newton1D:
-	gfortran -o ./newton1D.exe ./test/newton_test1D.f90 whatever_function.o module_linear_equations.o  module_no_linear_equations.o
+#directories
+MODULEDIR = ./modules
+FUNCTDIR  = ./functions
+TESTDIR   = ./test
+PLOTDIR   = ./plot
 
-test_newton3D:
-	gfortran -o ./newton3D.exe ./test/newton_test3D.f90 whatever_function.o module_linear_equations.o module_no_linear_equations.o
+#module files
+MODULEFILES = $(MODULEDIR)/module_linear_equations.f90 \
+			  $(MODULEDIR)/module_no_linear_equations.f90 \
+			  $(MODULEDIR)/module_edo.f90 \
+			  $(MODULEDIR)/module_integrate.f90
 
-test_lu:
-	gfortran -o ./lu.exe ./test/linear_sys_lu.f90 whatever_function.f90 module_linear_equations.o
+#functions files
+FUNCTFILES = $(FUNCTDIR)/chemical_reaction_function.f90 \
+		     $(FUNCTDIR)/dynamical_systems_function.f90 \
+			 $(FUNCTDIR)/lotka_volterra_function.f90 \
+			 $(FUNCTDIR)/one_dimension_function.f90 \
+			 $(FUNCTDIR)/whatever_function.f90
 
-test_euler_explicit:
-	gfortran -o ./euler_explicit.exe ./test/euler_explicit.f90 whatever_function.o module_edo.o
+#test files
+TESTFILES = $(TESTDIR)/linear_sys_lu.f90 \
+			$(TESTDIR)/adams_bashforth_5steps.f90 \
+			$(TESTDIR)/euler_explicit.f90 \
+			$(TESTDIR)/fix_point3D.f90 \
+			$(TESTDIR)/integrate_one_dimension.f90 \
+			$(TESTDIR)/adams_bashforth_2steps.f90 \
+			$(TESTDIR)/newton_test1D.f90 \
+			$(TESTDIR)/newton_test3D.f90 \
+			$(TESTDIR)/rk4_test.f90
 
-test_fix_point:
-	gfortran -o ./fix_point3D.exe ./test/fix_point3D.f90 whatever_function.o module_no_linear_equations.o module_linear_equations.o
+#plots files
+PLOTSFILES = $(PLOTDIR)/plot_bogdanov_takens_bifurcation.f90 \
+			 $(PLOTDIR)/plot_lorenz_attractor.f90 \
+			 $(PLOTDIR)/plot_lotka_volterra.f90 \
+			 $(PLOTDIR)/plot_lotka_volterra2.f90 \
+			 $(PLOTDIR)/plot_ode_fun1.f90 \
+			 $(PLOTDIR)/plot_pendulum.f90 \
+			 $(PLOTDIR)/plot_transesterification_isoterm.f90
 
-test_adams_bashforth_2:
-	gfortran -o ./adams_bashforth_2.exe ./test/adams_bashforth_2steps.f90 whatever_function.o module_edo.o
+all : compilar exetest exeplots clean 
 
-test_adams_bashforth_5:
-	gfortran -o ./adams_bashforth_5.exe ./test/adams_bashforth_5steps.f90 whatever_function.o module_edo.o
+exetest :
+	$(FC) -o rk4.exe rk4_test.o whatever_function.o module_edo.o
+	$(FC) -o newton1D.exe newton_test1D.o whatever_function.o module_linear_equations.o  module_no_linear_equations.o
+	$(FC) -o newton3D.exe newton_test3D.o whatever_function.o module_linear_equations.o module_no_linear_equations.o
+	$(FC) -o lu.exe linear_sys_lu.o whatever_function.o module_linear_equations.o
+	$(FC) -o euler_explicit.exe euler_explicit.o whatever_function.o module_edo.o
+	$(FC) -o fix_point3D.exe fix_point3D.o whatever_function.o module_no_linear_equations.o module_linear_equations.o
+	$(FC) -o adams_bashforth_2.exe adams_bashforth_2steps.o whatever_function.o module_edo.o
+	$(FC) -o adams_bashforth_5.exe adams_bashforth_5steps.o whatever_function.o module_edo.o
 
-test_integrate_one_dim:
-	gfortran -o ./integrate_one_dim.exe ./test/integrate_one_dimension.f90 -I/usr/local/dislin/gf -ldislin one_dimension_function.o module_integrate.o
+exeplots :
+	$(FC) -o plot1.exe plot_ode_fun1.o $(PGPLOTLIB) whatever_function.o module_edo.o
+	$(FC) -o plotlv1.exe plot_lotka_volterra.o $(PGPLOTLIB) lotka_volterra_function.o module_edo.o
+	$(FC) -o plotlv2.exe plot_lotka_volterra2.o $(PGPLOTLIB) lotka_volterra_function.o module_edo.o
+	$(FC) -o transes_iso.exe plot_transesterification_isoterm.o $(PGPLOTLIB) chemical_reaction_function.o module_edo.o
+	$(FC) -o bogdanov_takens.exe plot_bogdanov_takens_bifurcation.o $(PGPLOTLIB) dynamical_systems_function.o module_edo.o
+	$(FC) -o pendulum.exe plot_pendulum.o $(PGPLOTLIB) dynamical_systems_function.o module_edo.o
+	$(FC) -o lorenz.exe plot_lorenz_attractor.o $(DISLINLIB) dynamical_systems_function.o module_edo.o
 
-plot1:
-	gfortran -o plot1.exe ./plot/plot_ode_fun1.f90 -L/usr/local/pgplot -L/usr/X11/lib -lpgplot -lX11 whatever_function.o module_edo.o
 
-plot_lotka_volterra1:
-	gfortran -o plotlv1.exe ./plot/plot_lotka_volterra.f90 -L/usr/local/pgplot -L/usr/X11/lib -lpgplot -lX11 lotka_volterra_function.o module_edo.o
+compilar : modulos function pruebas plots
 
-plot_lotka_volterra2:
-	gfortran -o plotlv2.exe ./plot/plot_lotka_volterra2.f90 -L/usr/local/pgplot -L/usr/X11/lib -lpgplot -lX11 lotka_volterra_function.o module_edo.o
+#compile modules
+modulos :
+	$(FC) -c $(MODULEFILES)
 
-plot_transesterification_iso:
-	gfortran -o transes_iso.exe ./plot/plot_transesterification_isoterm.f90 -L/usr/local/pgplot -L/usr/X11/lib -lpgplot -lX11 chemical_reaction_function.o module_edo.o
+#compile functions
+function :
+	$(FC) -c $(FUNCTFILES)
 
-plot_bogdanov_takens:
-	gfortran -o bogdanov_takens.exe ./plot/plot_bogdanov_takens_bifurcation.f90 -L/usr/local/pgplot -L/usr/X11/lib -lpgplot -lX11 dynamical_systems_function.o module_edo.o
+#test files
+pruebas :
+	$(FC) -c $(TESTFILES) $(DISLINLIB)
 
-plot_pendulum:
-	gfortran -o pendulum.exe ./plot/plot_pendulum.f90 -L/usr/local/pgplot -L/usr/X11/lib -lpgplot -lX11 dynamical_systems_function.o module_edo.o
-
-plot_lorenz:
-	gfortran -o lorenz.exe ./plot/plot_lorenz_attractor.f90 -I/usr/local/dislin/gf -ldislin dynamical_systems_function.o module_edo.o
+plots :
+	$(FC) -c $(PLOTSFILES) $(DISLINLIB) $(PGPLOTLIB)
 
 clean:
-	rm *.mod *.o *.exe *.met
+	rm *.o *.mod
+
+cleanexe:
+	rm *.exe
