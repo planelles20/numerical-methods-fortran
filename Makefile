@@ -50,13 +50,13 @@ exetest :
 	$(FC) -o test_integrate_one.exe integrate_one_dimension.o $(DISLINLIB) one_dimension_function.o module_integrate.o
 
 exeplots :
-	$(FC) -o plot1.exe plot_ode_fun1.o $(PGPLOTLIB) whatever_function.o module_edo.o
-	$(FC) -o plotlv1.exe plot_lotka_volterra.o $(PGPLOTLIB) lotka_volterra_function.o module_edo.o
-	$(FC) -o plotlv2.exe plot_lotka_volterra2.o $(PGPLOTLIB) lotka_volterra_function.o module_edo.o
-	$(FC) -o transes_iso.exe plot_transesterification_isoterm.o $(PGPLOTLIB) chemical_reaction_function.o module_edo.o
-	$(FC) -o bogdanov_takens.exe plot_bogdanov_takens_bifurcation.o $(PGPLOTLIB) dynamical_systems_function.o module_edo.o
-	$(FC) -o pendulum.exe plot_pendulum.o $(PGPLOTLIB) dynamical_systems_function.o module_edo.o
-	$(FC) -o lorenz.exe plot_lorenz_attractor.o $(DISLINLIB) dynamical_systems_function.o module_edo.o
+	$(FC) -o plot_fun1.exe plot_ode_fun1.o $(PGPLOTLIB) whatever_function.o module_edo.o
+	$(FC) -o plot_lotka_volterra1.exe plot_lotka_volterra.o $(PGPLOTLIB) lotka_volterra_function.o module_edo.o
+	$(FC) -o plot_lotka_volterra2.exe plot_lotka_volterra2.o $(PGPLOTLIB) lotka_volterra_function.o module_edo.o
+	$(FC) -o plot_transes_iso.exe plot_transesterification_isoterm.o $(PGPLOTLIB) chemical_reaction_function.o module_edo.o
+	$(FC) -o plot_bogdanov_takens.exe plot_bogdanov_takens_bifurcation.o $(PGPLOTLIB) dynamical_systems_function.o module_edo.o
+	$(FC) -o plot_pendulum.exe plot_pendulum.o $(PGPLOTLIB) dynamical_systems_function.o module_edo.o
+	$(FC) -o plot_lorenz.exe plot_lorenz_attractor.o $(DISLINLIB) dynamical_systems_function.o module_edo.o
 
 
 compilar : modulos function pruebas plots
