@@ -44,7 +44,7 @@ PLOTSFILES = $(PLOTDIR)/plot_bogdanov_takens_bifurcation.f90 \
 			 $(PLOTDIR)/plot_pendulum.f90 \
 			 $(PLOTDIR)/plot_transesterification_isoterm.f90
 
-all : compilar exetest exeplots clean 
+all : compilar exetest exeplots clean
 
 exetest :
 	$(FC) -o rk4.exe rk4_test.o whatever_function.o module_edo.o
