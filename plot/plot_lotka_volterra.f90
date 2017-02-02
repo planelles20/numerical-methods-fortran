@@ -30,12 +30,22 @@ do i=1,N
     x(i) = a + (b-a)/(N-1)*(i-1)
 end do
 
+CALL PGSUBP (1, 2)
 call PGENV(a, b, 0.0, 80.0, 0, 1)
-call PGLAB('(t)', '(y)', 'Lotka-Volterra equation')
+call PGLAB('t', 'y', 'Lotka-Volterra equation')
 CALL PGSCI(2)
 call PGLINE(N,x,y(1,:))
 CALL PGSCI(3)
 call PGLINE(N,x,y(2,:))
 
+
+CALL PGPANL(1, 1)
+CALL PGSCI(1)
+call PGENV(0.0, 70.0, 0.0, 20.0, 0, 1)
+call PGLAB('y1', 'y2', 'Lotka-Volterra equation')
+CALL PGSCI(2)
+call PGLINE(N,y(1,:),y(2,:))
+
 call PGEND
+
 END
