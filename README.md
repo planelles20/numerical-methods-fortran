@@ -36,7 +36,7 @@ Solving linear, nonlinear equations, integral, ordinary differential equations, 
         - Backward differentiation formula (TODO)
 
 ## Examples
-The pgplot and dislin libraries are necessary to plot the examples:
+pgplot and dislin libraries are necessary to plot the examples:
 *[`pgplot`](http://www.astro.caltech.edu/~tjp/pgplot/)*, *[`dislin`](http://www.mps.mpg.de/dislin)*
 
 
@@ -74,7 +74,7 @@ The pgplot and dislin libraries are necessary to plot the examples:
 ### Example 4: isotherm transesterification reaction at 50 C (*[`link`](http://www.cubasolar.cu/biblioteca/Ecosolar/Ecosolar22/HTML/articulo02.htm)*)
 
 <p align="center">
-  <img src="http://latex.codecogs.com/gif.latex?%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D%20%26%5Cfrac%7Bd%5BTG%5D%7D%7Bdt%7D%20%3D%20-k_1%5BTG%5D%5BA%5D&plus;k_2%5BDG%5D%5BE%5D%20%5C%3A%5C%3A%5C%3A%5C%3A%5C%3A%5C%3A%20%26%200%20%5Cleq%20t%20%5Cleq%2025%20min%5C%5C%20%26%5Cfrac%7Bd%5BDG%5D%7D%7Bdt%7D%20%3D%20-k_3%5BDG%5D%5BA%5D&plus;k_4%5BMG%5D%5BE%5D&plus;k_1%5BTG%5D%5BA%5D-k_2%5BDG%5D%5BE%5D%5C%5C%20%26%5Cfrac%7Bd%5BMG%5D%7D%7Bdt%7D%20%3D%20-k_5%5BGL%5D%5BE%5D&plus;k_6%5BGL%5D%5BE%5D&plus;k_3%5BDG%5D%5BA%5D-k_4%5BMG%5D%5BE%5D%20%5C%5C%20%26%5Cfrac%7Bd%5BGL%5D%7D%7Bdt%7D%20%3D%20k_5%5BMG%5D%5BA%5D-k_6%5BGL%5D%5BE%5D%5C%5C%20%26%5Cfrac%7Bd%5BE%5D%7D%7Bdt%7D%20%3D%20k_1%5BTG%5D%5BA%5D-k_2%5BDG%5D%5BE%5D&plus;k_3%5BDG%5D%5BA%5D-k_4%5BMG%5D%5BE%5D&plus;k_5%5BMG%5D%5BA%5D-k_6%5BGL%5D%5BE%5D%5C%5C%20%26%5Cfrac%7Bd%5BA%5D%7D%7Bdt%7D%20%3D%20-k_1%5BTG%5D%5BA%5D&plus;k_2%5BDG%5D%5BE%5D-k_3%5BDG%5D%5BA%5D&plus;k_4%5BMG%5D%5BE%5D-k_5%5BMG%5D%5BA%5D&plus;k_6%5BGL%5D%5BE%5D%5C%5C%20%26%5BTG%5D%280%29%20%3D%201%5C%3A%5C%3A%5C%3A%20mol%20%5C%5C%20%26%5BDG%5D%280%29%20%3D%200%5C%3A%5C%3A%5C%3A%20mol%20%5C%5C%20%26%5BMG%5D%280%29%20%3D%200%5C%3A%5C%3A%5C%3A%20mol%20%5C%5C%20%26%5BGL%5D%280%29%20%3D%200%5C%3A%5C%3A%5C%3A%20mol%20%5C%5C%20%26%5BE%5D%280%29%20%3D%206%5C%3A%5C%3A%5C%3A%20mol%20%5C%5C%20%26%5BA%5D%280%29%20%3D%200%5C%3A%5C%3A%5C%3A%20mol%20%5Cend%7Bmatrix%7D%5Cright." alt="transesterification equation"/>
+  <img src="http://latex.codecogs.com/gif.latex?%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D%20%5Cfrac%7Bd%5BTG%5D%7D%7Bdt%7D%20%3D%20-k_1%5BTG%5D%5BA%5D&plus;k_2%5BDG%5D%5BE%5D%20%26%200%20%5Cleq%20t%20%5Cleq%2025%20min%5C%5C%20%5Cfrac%7Bd%5BDG%5D%7D%7Bdt%7D%20%3D%20-k_3%5BDG%5D%5BA%5D&plus;k_4%5BMG%5D%5BE%5D&plus;k_1%5BTG%5D%5BA%5D-k_2%5BDG%5D%5BE%5D%5C%5C%20%5Cfrac%7Bd%5BMG%5D%7D%7Bdt%7D%20%3D%20-k_5%5BGL%5D%5BE%5D&plus;k_6%5BGL%5D%5BE%5D&plus;k_3%5BDG%5D%5BA%5D-k_4%5BMG%5D%5BE%5D%5C%5C%20%5Cfrac%7Bd%5BGL%5D%7D%7Bdt%7D%20%3D%20k_5%5BMG%5D%5BA%5D-k_6%5BGL%5D%5BE%5D%5C%5C%20%5Cfrac%7Bd%5BE%5D%7D%7Bdt%7D%20%3D%20k_1%5BTG%5D%5BA%5D-k_2%5BDG%5D%5BE%5D&plus;k_3%5BDG%5D%5BE%5D-k_4%5BMG%5D%5BE%5D&plus;k_5%5BMG%5D%5BA%5D-k_6%5BGL%5D%5BE%5D%5C%5C%20%5Cfrac%7Bd%5BE%5D%7D%7Bdt%7D%20%3D%20-k_1%5BTG%5D%5BA%5D&plus;k_2%5BDG%5D%5BE%5D-k_3%5BDG%5D%5BE%5D&plus;k_4%5BMG%5D%5BE%5D-k_5%5BMG%5D%5BA%5D&plus;k_6%5BGL%5D%5BE%5D%5C%5C%20%5BTG%5D%280%29%20%3D%201%20%5C%3A%5C%3A%20mol%5C%5C%20%5BDG%5D%280%29%20%3D%200%20%5C%3A%5C%3A%20mol%5C%5C%20%5BMG%5D%280%29%20%3D%200%20%5C%3A%5C%3A%20mol%5C%5C%20%5BGL%5D%280%29%20%3D%200%20%5C%3A%5C%3A%20mol%5C%5C%20%5C%3A%5C%3A%5C%3A%5BE%5D%280%29%20%3D%200%20%5C%3A%5C%3A%20mol%5C%5C%20%5C%3A%5C%3A%5C%3A%5BA%5D%280%29%20%3D%206%20%5C%3A%5C%3A%20mol%20%5Cend%7Bmatrix%7D%5Cright." alt="transesterification equation"/>
 </p>
 
 Where:
