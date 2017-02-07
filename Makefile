@@ -32,6 +32,7 @@ TESTFILES = $(TESTDIR)/linear_sys.f90 \
 			$(TESTDIR)/fix_point.f90 \
 			$(TESTDIR)/integrate_one_dimension.f90 \
 			$(TESTDIR)/newton_test.f90 \
+			$(TESTDIR)/sde.f90
 
 #plots files
 PLOTSFILES = $(PLOTDIR)/plot_bogdanov_takens_bifurcation.f90 \
@@ -51,6 +52,7 @@ exetest :
 	$(FC) -o test_fix_point.exe fix_point.o whatever_function.o module_no_linear_equations.o module_linear_equations.o
 	$(FC) -o test_ode.exe ode.o whatever_function.o module_edo.o
 	$(FC) -o test_integrate_one.exe integrate_one_dimension.o one_dimension_function.o module_integrate.o
+	$(FC) -o test_sde.exe sde.o stochastic_dynamical_systems_function.o module_sdo.o
 
 exeplots :
 	$(FC) -o plot_fun1.exe plot_ode_fun1.o $(PGPLOTLIB) whatever_function.o module_edo.o
