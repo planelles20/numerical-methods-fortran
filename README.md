@@ -37,6 +37,11 @@ Solving linear, nonlinear equations, integral, ordinary differential equations, 
 
 ## 5. Stochastic Ordinary Differential Equations (SDE)
     - Euler-Maruyama method
+    - Milstein Method (TODO)
+    - Strong Order 1.0 Runge-Kutta Method (TODO)
+    - Strong Order 1.5 Taylor Method (TODO)
+    - Weak Order 2 Taylor Method (TODO)
+    - Weak Order 2 Runge-Kutta Method (TODO)
 
 ## Examples
 pgplot and dislin libraries are necessary to plot the examples:
@@ -135,6 +140,11 @@ Force Regulation by Nascent Adhesion Sites (Robijn Bruinsma)
   <img src="http://latex.codecogs.com/gif.latex?%5Crho%20%3D%20Z%20-%20X%20%5C%5C%20%5C%5C%20F%20%3D%20%5Cfrac%7Bd%20U%7D%7Bd%20%5Crho%7D%20%3D%20%5Cfrac%7Bd%7D%7Bd%20%5Crho%7D%20%5Cleft%28-%5CDelta%20U%20e%5E%7B%5Cleft%28%20-%5Cfrac%7B-%5Crho%5E2%7D%7B%5Crho_f%5E2%7D%20%5Cright%29%7D%20%5Cright%20%29%20%3D%202%5Crho%20%5Cfrac%7B%5CDelta%20U%7D%7B%5Crho_f%5E2%7De%5E%7B%5Cleft%28%20-%5Cfrac%7B-%5Crho%5E2%7D%7B%5Crho_f%5E2%7D%20%5Cright%29%7D%20%5C%5C%20f%28t%29_B%20%3D%20%5Csigma_B%20%5Csqrt%7B%5CDelta%20t%7D%5Ccdot%20G%280%2C1%29%5C%5C%20f%28t%29_R%20%3D%20%5Csigma_R%20%5Csqrt%7B%5CDelta%20t%7D%5Ccdot%20G%280%2C1%29" alt="one-dimensional integral equation"/>
 </p>
 
+Where:
+<ul>
+    <li> G(0,1) standard normal distribution. </li>
+</ul>
+
 <p align="center">
-  <img src="https://github.com/planelles20/numerical-methods-fortran/blob/master/img/one_dim_funct.png?raw=true" alt="one-dimensional function figure"/>
+  <img src="https://github.com/planelles20/numerical-methods-fortran/blob/master/img/bruinsma.png?raw=true" alt="one-dimensional function figure"/>
 </p>
