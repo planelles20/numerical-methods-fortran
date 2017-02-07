@@ -50,7 +50,7 @@ exetest :
 	$(FC) -o test_linear.exe linear_sys.o whatever_function.o module_linear_equations.o
 	$(FC) -o test_fix_point.exe fix_point.o whatever_function.o module_no_linear_equations.o module_linear_equations.o
 	$(FC) -o test_ode.exe ode.o whatever_function.o module_edo.o
-	$(FC) -o test_integrate_one.exe integrate_one_dimension.o $(DISLINLIB) one_dimension_function.o module_integrate.o
+	$(FC) -o test_integrate_one.exe integrate_one_dimension.o one_dimension_function.o module_integrate.o
 
 exeplots :
 	$(FC) -o plot_fun1.exe plot_ode_fun1.o $(PGPLOTLIB) whatever_function.o module_edo.o
