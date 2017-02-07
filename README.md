@@ -23,7 +23,7 @@ Solving linear, nonlinear equations, integral, ordinary differential equations, 
         - Sparse grids      (TODO)
         - Bayesian Quadrature (TODO)
 
-## 4. Ordinary differential equations
+## 4. Ordinary differential equations (ODE)
     Monostep
         - Euler explicit
         - Euler implicit (TODO)
@@ -34,6 +34,9 @@ Solving linear, nonlinear equations, integral, ordinary differential equations, 
         - Nyström         (TODO)
         - Mile-Simpson    (TODO)
         - Backward differentiation formula (TODO)
+
+## 5. Stochastic Ordinary Differential Equations (SDE)
+    - Euler-Maruyama method
 
 ## Examples
 pgplot and dislin libraries are necessary to plot the examples:
@@ -121,10 +124,15 @@ Where:
   <img src="https://github.com/planelles20/numerical-methods-fortran/blob/master/img/lorenz.png?raw=true" alt="Lorenz figure"/>
 </p>
 
-### Example 8: one-dimensional integral
+### Example 8: Stochastic Ordinary Differential Equation (SDE)
+Force Regulation by Nascent Adhesion Sites (Robijn Bruinsma)
 
 <p align="center">
-  <img src="http://latex.codecogs.com/gif.latex?%5Cint_0%5E1%20%5Cfrac%7B4%7D%7B1&plus;x%5E2%7D%20%3D%20%5Cpi" alt="one-dimensional integral equation"/>
+  <img src="http://latex.codecogs.com/gif.latex?%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D%20%5Cfrac%7BdX%7D%7Bdt%7D%20%3D%20-%5Cfrac%7Bk%7D%7B%5Cgamma_B%7DX&plus;%5Cfrac%7BF%7D%7B%5Cgamma_B%7D&plus;%5Cfrac%7Bf%28t%29_B%7D%7B%5Cgamma_B%7D%20%26%200%20%5Cleq%20t%20%5Cleq%20100%20%5C%5C%20%5C%5C%20%5Cfrac%7BdZ%7D%7Bdt%7D%20%3D%20-%5Cfrac%7BF%7D%7B%5Cgamma_R%7D%20&plus;%20%5Cfrac%7BT%7D%7B%5Cgamma_R%7D%20&plus;%20%5Cfrac%7Bf%28t%29_R%7D%7B%5Cgamma_R%7D%5C%5C%20%5C%5C%20X%280%29%20%3D%200%20%5C%3A%5C%3A%20nm%20%5C%5C%20Z%280%29%20%3D%20-10%20%5C%3A%5C%3A%20nm%20%5Cend%7Bmatrix%7D%5Cright." alt="one-dimensional integral equation"/>
+</p>
+
+<p align="center">
+  <img src="http://latex.codecogs.com/gif.latex?%5Crho%20%3D%20Z%20-%20X%20%5C%5C%20%5C%5C%20F%20%3D%20%5Cfrac%7Bd%20U%7D%7Bd%20%5Crho%7D%20%3D%20%5Cfrac%7Bd%7D%7Bd%20%5Crho%7D%20%5Cleft%28-%5CDelta%20U%20e%5E%7B%5Cleft%28%20-%5Cfrac%7B-%5Crho%5E2%7D%7B%5Crho_f%5E2%7D%20%5Cright%29%7D%20%5Cright%20%29%20%3D%202%5Crho%20%5Cfrac%7B%5CDelta%20U%7D%7B%5Crho_f%5E2%7De%5E%7B%5Cleft%28%20-%5Cfrac%7B-%5Crho%5E2%7D%7B%5Crho_f%5E2%7D%20%5Cright%29%7D%20%5C%5C%20f%28t%29_B%20%3D%20%5Csigma_B%20%5Csqrt%7B%5CDelta%20t%7D%5Ccdot%20G%280%2C1%29%5C%5C%20f%28t%29_R%20%3D%20%5Csigma_R%20%5Csqrt%7B%5CDelta%20t%7D%5Ccdot%20G%280%2C1%29" alt="one-dimensional integral equation"/>
 </p>
 
 <p align="center">
