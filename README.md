@@ -6,11 +6,16 @@ Solving linear, nonlinear equations, integral, ordinary differential equations, 
     PLU (TODO)
     QR (TODO)
 
-## 2. No linear equations
+## 2. Non-uniform random number generator
+    Normal distribution
+        - Box–Muller transform
+        - Ratio-of-uniforms method
+
+## 3. No linear equations
     Newton-Raphson
     Fix point
 
-## 3. Integration Methods
+## 4. Integration Methods
     One-dimensional
         - Rectangle rule.
         - Trapezoidal rule.
@@ -23,7 +28,7 @@ Solving linear, nonlinear equations, integral, ordinary differential equations, 
         - Sparse grids      (TODO)
         - Bayesian Quadrature (TODO)
 
-## 4. Ordinary differential equations (ODE)
+## 5. Ordinary differential equations (ODE)
     Monostep
         - Euler explicit
         - Euler implicit (TODO)
@@ -35,7 +40,7 @@ Solving linear, nonlinear equations, integral, ordinary differential equations, 
         - Mile-Simpson    (TODO)
         - Backward differentiation formula (TODO)
 
-## 5. Stochastic Ordinary Differential Equations (SDE)
+## 6. Stochastic Ordinary Differential Equations (SDE)
     - Euler-Maruyama method
     - Milstein Method (TODO)
     - Strong Order 1.0 Runge-Kutta Method (TODO)
