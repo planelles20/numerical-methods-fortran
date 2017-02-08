@@ -35,6 +35,8 @@ end do
 
 call PGENV(0.0, 100.0, -10.0, 20.0, 0, 1)
 call PGLAB('t(s)', 'distance (nm)', 'Force Regulation by Nascent Adhesion Sites')
+call PGMTXT ('RV', 0.0, 0.95, 1.5, "X(t) (Red)")
+call PGMTXT ('RV', 0.0, 0.90, 1.25,"Z(t) (Green)")
 call PGSCI(2)
 call PGLINE(N,x,y(1,:)*1e9)
 call PGSCI(3)
