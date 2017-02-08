@@ -54,7 +54,7 @@ exetest :
 	$(FC) -o test_fix_point.exe fix_point.o whatever_function.o module_no_linear_equations.o module_linear_equations.o
 	$(FC) -o test_ode.exe ode.o whatever_function.o module_edo.o
 	$(FC) -o test_integrate_one.exe integrate_one_dimension.o one_dimension_function.o module_integrate.o
-	$(FC) -o test_sde.exe sde.o stochastic_dynamical_systems_function.o module_sdo.o
+	$(FC) -o test_sde.exe sde.o module_probability_distributions.o stochastic_dynamical_systems_function.o module_sdo.o
 	$(FC) -o test_probability_distribution.exe probability_distribution.o module_probability_distributions.o
 
 
@@ -66,7 +66,7 @@ exeplots :
 	$(FC) -o plot_bogdanov_takens.exe plot_bogdanov_takens_bifurcation.o $(PGPLOTLIB) dynamical_systems_function.o module_edo.o
 	$(FC) -o plot_pendulum.exe plot_pendulum.o $(PGPLOTLIB) dynamical_systems_function.o module_edo.o
 	$(FC) -o plot_lorenz.exe plot_lorenz_attractor.o $(DISLINLIB) dynamical_systems_function.o module_edo.o
-	$(FC) -o plot_bruinsma.exe plot_bruinsma.o $(PGPLOTLIB) stochastic_dynamical_systems_function.o module_sdo.o
+	$(FC) -o plot_bruinsma.exe plot_bruinsma.o $(PGPLOTLIB) module_probability_distributions.o stochastic_dynamical_systems_function.o module_sdo.o
 
 
 compilar : modulos function pruebas plots

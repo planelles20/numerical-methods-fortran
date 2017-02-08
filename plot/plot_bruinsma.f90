@@ -9,13 +9,16 @@
 program plot_bruinsma
 use module_sdo, only: EM
 use stochastic_dynamical_systems_function, only: force_regulation, force_regulation_g
+use module_probability_distribution, only: init_random_seed
 implicit none
 
-real :: y0(2), a = 0.0, b = 100.0
+real :: y0(2), a = 0.0, b = 1000.0
 real, allocatable :: x(:)
 integer :: i, N = 10000
 real, allocatable :: y(:,:)
 integer :: IER, PGBEG
+
+call init_random_seed()
 
 allocate(x(N))
 

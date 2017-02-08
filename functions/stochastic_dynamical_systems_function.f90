@@ -6,6 +6,7 @@
 !-----------------------------------------------------------------------
 
 module stochastic_dynamical_systems_function
+use module_probability_distribution, only: NormalBoxMuller
 implicit none
 
 contains
@@ -49,8 +50,8 @@ contains
          sigmaR = 5e-9 !N / s**0.5
 
          !(TODO) change rand by normal distribution (0,1)
-         force_regulation_g(1) = sigmaB/gammaB*(rand()-rand())*2.8
-         force_regulation_g(2) = sigmaR/gammaR*(rand()-rand())*2.8
+         force_regulation_g(1) = sigmaB/gammaB*NormalBoxMuller()
+         force_regulation_g(2) = sigmaR/gammaR*NormalBoxMuller()
       end function
 
 end module
