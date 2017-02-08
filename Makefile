@@ -16,7 +16,8 @@ MODULEFILES = $(MODULEDIR)/module_linear_equations.f90 \
 			  $(MODULEDIR)/module_no_linear_equations.f90 \
 			  $(MODULEDIR)/module_edo.f90 \
 			  $(MODULEDIR)/module_integrate.f90 \
-			  $(MODULEDIR)/module_sdo.f90
+			  $(MODULEDIR)/module_sdo.f90 \
+			  $(MODULEDIR)/module_probability_distributions.f90
 
 #functions files
 FUNCTFILES = $(FUNCTDIR)/chemical_reaction_function.f90 \
@@ -32,7 +33,8 @@ TESTFILES = $(TESTDIR)/linear_sys.f90 \
 			$(TESTDIR)/fix_point.f90 \
 			$(TESTDIR)/integrate_one_dimension.f90 \
 			$(TESTDIR)/newton_test.f90 \
-			$(TESTDIR)/sde.f90
+			$(TESTDIR)/sde.f90 \
+			$(TESTDIR)/probability_distribution.f90
 
 #plots files
 PLOTSFILES = $(PLOTDIR)/plot_bogdanov_takens_bifurcation.f90 \
@@ -53,6 +55,8 @@ exetest :
 	$(FC) -o test_ode.exe ode.o whatever_function.o module_edo.o
 	$(FC) -o test_integrate_one.exe integrate_one_dimension.o one_dimension_function.o module_integrate.o
 	$(FC) -o test_sde.exe sde.o stochastic_dynamical_systems_function.o module_sdo.o
+	$(FC) -o test_probability_distribution.exe probability_distribution.o module_probability_distributions.o
+
 
 exeplots :
 	$(FC) -o plot_fun1.exe plot_ode_fun1.o $(PGPLOTLIB) whatever_function.o module_edo.o
