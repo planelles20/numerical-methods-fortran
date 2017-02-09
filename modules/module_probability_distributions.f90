@@ -51,6 +51,19 @@ end
         NormalRatioUniforms = x
     end function
 
+    function NormalRatioUniformsND(dimen)
+        real, allocatable :: NormalRatioUniformsND(:)
+        integer, intent(in) :: dimen
+        integer :: i
+
+        allocate(NormalRatioUniformsND(dimen))
+
+        do i = 1, dimen
+            NormalRatioUniformsND(i) = NormalRatioUniforms()
+        end do
+    end function
+
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! standard normal random number generator based
 ! on the Box–Muller transform

@@ -16,8 +16,8 @@ MODULEFILES = $(MODULEDIR)/module_linear_equations.f90 \
 			  $(MODULEDIR)/module_no_linear_equations.f90 \
 			  $(MODULEDIR)/module_edo.f90 \
 			  $(MODULEDIR)/module_integrate.f90 \
-			  $(MODULEDIR)/module_sdo.f90 \
-			  $(MODULEDIR)/module_probability_distributions.f90
+			  $(MODULEDIR)/module_probability_distributions.f90  \
+			  $(MODULEDIR)/module_sdo.f90 
 
 #functions files
 FUNCTFILES = $(FUNCTDIR)/chemical_reaction_function.f90 \
