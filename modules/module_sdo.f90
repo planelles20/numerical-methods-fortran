@@ -92,5 +92,49 @@ contains
         end do
     end function
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Weak Order 2 Runge-Kutta Method
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    function W2RK(f, g, a, b, N, y0)
+        real, allocatable :: W2RK(:,:)
+        interface
+            function f(x, y)
+                real, allocatable :: f(:)
+                real, intent(in) :: x, y(:)
+            end function
+        end interface
+        interface
+            function g(x, y)
+                real, allocatable :: g(:)
+                real, intent(in) :: x, y(:)
+            end function
+        end interface
+        real, intent(in) :: a, b
+        integer, intent(in) :: N
+        real, intent(in) :: y0(:)
+        real :: xn, step
+        real, allocatable :: DW(:), u(:), up(:), ul(:)
+        integer :: i
+        real, allocatable :: yn(:)
+
+        allocate(W2RK(size(y0),N), DW(size(y0)))
+        allocate(u(size(y0)), up(size(y0)), ul(size(y0)))
+        step = (b-a)/(N-1)
+        W2RK(:,1) = y0
+
+        do i = 2, N
+            DW(:) = (step)**0.5*NormalRatioUniformsND(size(y0))
+            xn = a+(i-2)*step
+            yn = W2RK(:,i-1)
+
+            u  = yn + f(xn, yn)*step + g(xn,yn)*DW
+            up = yn + f(xn, yn)*step + g(xn,yn)*(step)**0.5
+            ul = yn + f(xn, yn)*step - g(xn,yn)*(step)**0.5
+
+            W2RK(:,i) = yn + 0.5*(f(xn, u)+f(xn, yn))*step &
+                        + 0.25*(g(xn,up)+g(xn,ul)+2.0*g(xn,yn))*DW &
+                        + 0.25*(g(xn,up)-g(xn,ul))*(DW**2-step)/(step**0.5)
+        end do
+    end function
 
 end module

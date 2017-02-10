@@ -43,10 +43,10 @@ Solving linear, nonlinear equations, integral, ordinary differential equations, 
 ## 6. Stochastic Ordinary Differential Equations (SDE)
     - Euler-Maruyama method
     - Milstein Method (TODO)
-    - Strong Order 1.0 Runge-Kutta Method (TODO)
+    - Strong Order 1.0 Runge-Kutta Method 
     - Strong Order 1.5 Taylor Method (TODO)
     - Weak Order 2 Taylor Method (TODO)
-    - Weak Order 2 Runge-Kutta Method (TODO)
+    - Weak Order 2 Runge-Kutta Method
 
 ## Examples
 pgplot and dislin libraries are necessary to plot the examples:

@@ -6,7 +6,7 @@
 !-----------------------------------------------------------------------
 
 program ode
-use module_sdo, only: EM
+use module_sdo, only: W2RK
 use stochastic_dynamical_systems_function, only: force_regulation, force_regulation_g
 use module_probability_distribution, only: init_random_seed
 implicit none
@@ -20,7 +20,7 @@ call init_random_seed()
 
 y0(:) = [0.0e-9, -10.0e-9] ! meters
 
-y = EM(force_regulation, force_regulation_g, a, b, N, y0)
+y = W2RK(force_regulation, force_regulation_g, a, b, N, y0)
 
 print *, y(2,:)
 
