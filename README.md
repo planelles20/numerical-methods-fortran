@@ -11,7 +11,7 @@ Solving linear, nonlinear equations, integral, ordinary differential equations, 
         - Box–Muller transform
         - Ratio-of-uniforms method
 
-## 3. No linear equations
+## 3. Nonlinear equations
     Newton-Raphson
     Fix point
 
